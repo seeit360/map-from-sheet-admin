@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <title>Form Elements Test Page</title>
+
+        <!-- W3 Schools Grid // https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_grid_example&stacked=h-->
+        <link type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet" />
+
+        <!-- very small reset (without reset buttons are offset) -->
+        <link type="text/css" href="css/reset.css" rel="stylesheet" />
+
+        <!-- material icons -->
+        <link type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- jquery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+        <!-- jquery resizable, draggable for image editor -->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+        <!-- jquery (used as part of image editor) -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+        <!-- my styles-->
+        <link type="text/css" href="style.css" rel="stylesheet" />
+        
+        <!-- select-->
+        <link type="text/css" href="select_component.css" rel="stylesheet" />
+        
+        <!-- select -->
+        <script type="text/javascript" src="select_component.js"></script> 
+
+        <!-- jquery plugin typeahead -->
+        <script type="text/javascript" src="js/jquery.typeahead.min.js"></script>
+
+        <!-- barcode generator -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jsbarcode/3.3.20/JsBarcode.all.min.js"></script>
+
+    </head>
+
+    <body>
+        <section>
+            <form id="form" name="form" class="form-card">
+                <!-- SHOOTING FIELDSET -->
+                <div class="form-fieldset">
+                    <div class="form-legend">New Shooting</div>
+
+                    <!-- INCIDENT DETAILS GROUP -->
+                    <section class="form-section">
+                        
+                        <div class="form-section-header form-legend">Incident Details</div>
+
+                        <!-- CASE INPUT -->
+                        <div class="form-element" data-hint="a descriptive name" data-buttons="dictate">
+                            <label>Case</label>
+                            <input type="text" class="form-element-field" name="case" placeholder="e.g. San Francisco UPS shooting" autocomplete="off" spellcheck="true" autocorrect="off" autocapitalize="words" required />
+                        </div>
+
+                        <!-- SUMMARY TEXTAREA -->
+                        <div class="form-element" data-hint=" " data-buttons="dictate">
+                            <label>Incident summary</label>
+                            <textarea type="text" class="form-element-field" name="summary" placeholder="include a brief incident summary" autocomplete="off" spellcheck="true" autocorrect="off" autocapitalize="sentences" required></textarea>
+                        </div>
+
+                        <!-- CATEGORY RADIO -->
+                        <fieldset class="form-radio form-radio-inline">
+                            <legend class="form-radio-legend">Shooting category</legend>
+                            <label class="form-radio-label">
+                                <input type="radio" class="form-radio-field" name="category" value="Mass" checked />
+                                <i class="form-radio-button"></i>
+                                <span>Mass</span>
+                            </label>
+                            <label class="form-radio-label">
+                                <input type="radio" class="form-radio-field" name="category" value="Spree" />
+                                <i class="form-radio-button"></i>
+                                <span>Spree</span>
+                            </label>
+                            <div><small class="form-element-hint">the spree category is for multiple incident locations without a cooling off period</small></div>
+                        </fieldset>
+
+                        <!-- VENUE RADIO -->
+                        <fieldset class="form-radio form-radio-inline">
+                            <legend class="form-radio-legend">Shooting venue</legend>
+                            <label class="form-radio-label">
+                                <input type="radio" class="form-radio-field" name="venue" value="Military" />
+                                <i class="form-radio-button"></i>
+                                <span>Military</span>
+                            </label>
+                            <label class="form-radio-label">
+                                <input type="radio" class="form-radio-field" name="venue" value="Public Place" checked />
+                                <i class="form-radio-button"></i>
+                                <span>Public Place</span>
+                            </label>
+                            <label class="form-radio-label">
+                                <input type="radio" class="form-radio-field" name="venue" value="Religious" />
+                                <i class="form-radio-button"></i>
+                                <span>Religious</span>
+                            </label>
+                            <label class="form-radio-label">
+                                <input type="radio" class="form-radio-field" name="venue" value="School" />
+                                <i class="form-radio-button"></i>
+                                <span>School</span>
+                            </label>
+                            <label class="form-radio-label">
+                                <input type="radio" class="form-radio-field" name="venue" value="Workplace" />
+                                <i class="form-radio-button"></i>
+                                <span>Workplace</span>
+                            </label>
+                            <div><small class="form-element-hint">any private residence venue, outside of a spree shooting, is not collected in this data set</small></div>
+                        </fieldset>
+
+                        <!-- DATE DATE -->
+                        <div class="form-element">
+                            <label>Date</label>
+                            <input type="date" class="form-element-field" min="1982-01-01" name="date" placeholder="mm/dd/yyyy" autocomplete="off" required />
+                        </div>
+
+                        <!-- LOCATION MAP (search button is special here)-->
+                        <fieldset class="form-element form-map" data-buttons="search,dictate" data-hint="click anywhere on the map to add location">
+                            <legend class="form-map-legend">Location</legend>
+                            <!-- MAP FRAME -->
+                            <div id="map-canvas" class="form-element-map"></div>
+                            
+                            <!-- PULLED IN FIELDS -->
+                            <div style="display:none">
+                                <!-- this <div> is pulled in by the map on initMap() -->
+                                <div id="searchbox">
+                                    <div class="search-searchbox">
+                                        <div class="search-searchbox-wrapper">
+                                            <div class="search-searchbox-area search-searchbox-shadow" role="search">
+                                                <div class="search-searchbox-input" role="combobox">
+                                                    <input aria-autocomplete="both" type="input" autocomplete="off" autocapitalize="words" class="form-element-field" id="search-searchbox-input" name="search_input" dir="ltr" spellcheck="false" placeholder="Search for US location">
+                                                    <span class="search-searchbox-button"></span>
+                                                    <div class="form-element-action"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- this <span> is pulled in by the map on initMap() and is the target in the center of the map-->
+                                <span id="point" class="form-map-point">
+                                    <button tabindex="0" type="button" class="point round pulse"></button>
+                                </span>
+                                <!-- this <div> is pulled in by the map on initMap() and are the zoom controls-->
+                                <div id="zooms" class="form-element-action">
+                                    <div>
+                                        <button tabindex="0" type="button" class="zoomin round"></button>
+                                    </div>
+                                    <div>
+                                        <button tabindex="0" type="button" class="zoomout round"></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- map.js javascript fills these values-->
+                            <input type="hidden" class="form-element-field" id="location" name="location" required/>
+                            <input type="hidden" id="state" name="state" />
+                            <input type="hidden" id="longitude" name="longitude" />
+                            <input type="hidden" id="latitude" name="latitude" />
+
+                        </fieldset>
+
+                        <!-- FATALITIES LIST -->
+                        <div class="form-element" data-hint="press enter, return or + to add item" data-buttons="add, dictate">
+                            <label>Fatality list</label>
+                            <input type="text" name="victims-input" class="form-element-field" data-target="#victims" placeholder="e.g. John Smith, 22" spellcheck="false" autocomplete="off" autocapitalize="words" required />
+                        </div>
+
+                        <!-- INJURED NUMBER -->
+                        <div class="form-element" data-hint="total non-fatal injured" data-buttons="plus round, minus round">
+                            <label>Injured Count</label>
+                            <input type="number" class="form-element-field" name="injured" placeholder="e.g. 4" value="" min="0" oninput="validity.valid||(value='');" required />
+                        </div>
+
+                        <!-- NEWS SOURCES LIST -->
+                        <div class="form-element" data-hint="press enter, return or + to add item" data-buttons="valid, add">
+                            <label>Reference list</label>
+                            <input type="text" name="newssources" class="form-element-field url" data-target="#sources" placeholder="e.g. http://website.com/article" autocomplete="off" spellcheck="false" autocapitalize="none">
+                        </div>
+                        
+                    </section>
+
+                    <!-- IMAGES GROUP -->
+                    <section class="form-section">
+                        
+                        <div class="form-section-header form-legend">Images</div>
+
+                        <!-- IMAGES FILE/INPUT -->
+                        <div class="form-element form-file" data-hint="paste link or open file" data-buttons="paste, openfile ">
+                            <label>Image</label>
+                            <input tabindex="-1" type="file" id="field-image" accept="image/gif, image/jpeg, image/png"/>
+                            <span class="form-input-flex">
+                                <span>
+                                    <input tabindex="-1" type="text" class="form-element-field" data-target="#image" placeholder="paste image link here" name="title" autocapitalize="off" autocomplete="off" spellcheck="false" autocorrect="off"/>
+                                </span>
+                                <span class="ext" style="display:none"></span>
+                            </span>
+
+                        </div>
+
+                        <!-- IMAGE ATTRIBUTION INPUT -->
+                        <div class="form-element form-image-tagline" data-hint="include an attribution tagline for the image" data-buttons="dictate">
+                            <label>Image attribution</label>
+                            <input type="text" class="form-element-field" name="attribution" placeholder="e.g. AP/Gannett" autocomplete="off" spellcheck="false" autocorrect="off" />
+                        </div>
+
+                        <!-- IMAGE DESCRIPTION INPUT -->
+                        <div class="form-element form-image-tagline" data-hint="a brief description of the image" data-buttons="dictate">
+                            <label>Image description</label>
+                            <input type="text" class="form-element-field" name="description" placeholder="e.g. Image: Students participating in memorial ceremony" autocomplete="off" spellcheck="false" autocorrect="off" />
+                        </div>
+                        
+                    </section>
+
+                    <!-- WEAPONS GROUP -->
+                    <section class="form-section">
+                        
+                        <div class="form-section-header form-legend">Weapons</div>
+
+                        <!-- LEGAL WEAPONS RADIO -->
+                        <fieldset class="form-radio form-radio-inline">
+                            <legend class="form-radio-legend">Legal</legend>
+                            <label class="form-radio-label">
+                                <input type="radio" class="form-radio-field" name="legal" value="Yes" />
+                                <i class="form-radio-button"></i>
+                                <span>Yes</span>
+                            </label>
+                            <label class="form-radio-label">
+                                <input type="radio" class="form-radio-field" name="legal" value="No" />
+                                <i class="form-radio-button"></i>
+                                <span>No</span>
+                            </label>
+                            <label class="form-radio-label">
+                                <input type="radio" class="form-radio-field" name="legal" value="Unknown" />
+                                <i class="form-radio-button"></i>
+                                <span>Unknown</span>
+                            </label>
+                            <!-- add a required check to unchecked radio fields by adding a hidden <input> -->
+                            <input type="hidden" required>
+                        </fieldset>
+
+                        <!--WEAPONS LIST -->
+                        <div class="form-element typeahead__container" data-hint="type to lookup weapon. press enter, return or + to add item" data-buttons="new, add" data-label="Weapons list">
+                            <!-- INPUT TYPEAHEAD FIELD -->
+                            <div class="typeahead__field">
+                                 <span class="typeahead__query">
+                                     <!-- tab index="0" allows both the <button> and <input> to get tab focus -->
+                                    <input tabindex="0" type="text" name="weapon_input" class="form-element-field form-typeahead" data-target="#weapon" placeholder="e.g. Smith &amp; Wesson revolver" autocomplete="off" />
+                                </span>
+                            </div>
+
+                            <!-- WEAPONS GROUP RADIO SETTER -->
+                            <fieldset class="form-radio form-radio-inline">
+                                <!-- bar here makes a nice wrapper -->
+                                <div class="form-element-bar" style="margin-top:-8px;margin-bottom:8px"></div>
+                                <label class="form-radio-label">
+                                    <input type="radio" class="form-radio-field weapon_group" name="weapon_group" value="accessory" />
+                                    <i class="form-radio-button"></i>
+                                    <span>Accessory</span>
+                                </label>
+                                <label class="form-radio-label">
+                                    <input type="radio" class="form-radio-field weapon_group" name="weapon_group" value="ammo" />
+                                    <i class="form-radio-button"></i>
+                                    <span>Ammo</span>
+                                </label>
+                                <label class="form-radio-label">
+                                    <input type="radio" class="form-radio-field weapon_group" name="weapon_group" value="derringer" />
+                                    <i class="form-radio-button"></i>
+                                    <span>Derringer</span>
+                                </label>
+                                <label class="form-radio-label">
+                                    <input type="radio" class="form-radio-field weapon_group" name="weapon_group" value="explosive" />
+                                    <i class="form-radio-button"></i>
+                                    <span>Explosive</span>
+                                </label>
+                                <label class="form-radio-label">
+                                    <input type="radio" class="form-radio-field weapon_group" name="weapon_group" value="handgun" />
+                                    <i class="form-radio-button"></i>
+                                    <span>Handgun</span>
+                                </label>
+                                <label class="form-radio-label">
+                                    <input type="radio" class="form-radio-field weapon_group" name="weapon_group" value="knife" />
+                                    <i class="form-radio-button"></i>
+                                    <span>Knife</span>
+                                </label>
+                                <label class="form-radio-label">
+                                    <input type="radio" class="form-radio-field weapon_group" name="weapon_group" value="magazine" />
+                                    <i class="form-radio-button"></i>
+                                    <span>Magazine</span>
+                                </label>
+                                <label class="form-radio-label">
+                                    <input type="radio" class="form-radio-field weapon_group" name="weapon_group" value="pistol" />
+                                    <i class="form-radio-button"></i>
+                                    <span>Pistol</span>
+                                </label>
+                                <label class="form-radio-label">
+                                    <input type="radio" class="form-radio-field weapon_group" name="weapon_group" value="revolver" />
+                                    <i class="form-radio-button"></i>
+                                    <span>Revolver</span>
+                                </label>
+                                <label class="form-radio-label">
+                                    <input type="radio" class="form-radio-field weapon_group" name="weapon_group" value="rifle" />
+                                    <i class="form-radio-button"></i>
+                                    <span>Rifle</span>
+                                </label>
+                                <label class="form-radio-label">
+                                    <input type="radio" class="form-radio-field weapon_group" name="weapon_group" value="shotgun" />
+                                    <i class="form-radio-button"></i>
+                                    <span>Shotgun</span>
+                                </label>
+                            </fieldset>
+
+                        </div>
+
+                        <!-- HOW OBTAINED TEXTAREA -->
+                        <div class="form-element" data-hint=" " data-buttons="dictate">
+                            <label>Obtained</label>
+                            <textarea type="text" class="form-element-field" name="obtained" placeholder="Include a brief description of how or where weapons were obtained" autocomplete="off" spellcheck="true" autocorrect="off" autocapitalize="sentences" required></textarea>
+                        </div>
+                        
+                    </section>
+ 
+                    <!-- SHOOTER GROUP -->
+                    <section class="form-section">
+                        
+                        <div class="form-section-header form-legend">
+                             Suspect<span class="secondary">s</span>
+                        </div>
+
+                        <!-- MDC SECONDARY SWITCH -->
+                        <div class="form-switch">
+                            <div class="form-switch-legend">Secondary perpetrator?</div>
+                            <div class="mdc-switch">
+                                <input type="checkbox" id="secondary" class="mdc-switch__native-control -istruefalse" tabindex="0" role="switch" data-checked="false" aria-checked="false" value="false">
+                                <div class="mdc-switch__background">
+                                    <div class="mdc-switch__knob"></div>
+                                </div>
+                            </div>
+                            <label for="secondary" class="mdc-switch-label">no/yes</label>
+                        </div>
+
+                        <!-- SHOOTERS DETAILS PRIMARY/SECONDARY COLUMNS -->
+                        <div class="w3-row-padding">
+                            
+                            <!-- PRIMARY COLUMN -->
+                            <div class="w3-col s12 m12 primary">
+                                
+                                <!-- PRIMARY NAME INPUT -->
+                                <div class="form-element" data-buttons="dictate">
+                                    <label>Perpetrator name</label>
+                                    <input type="text" class="form-element-field" name="primary" placeholder="First Last" autocomplete="off" autocorrect="off" spellcheck="false" autocapitalize="words" required />
+                                </div>
+
+                                <!-- PRIMARY AGE NUMBER -->
+                                <div class="form-element" data-buttons="plus round, minus round">
+                                    <label>Perpetrator age</label>
+                                    <input type="number" class="form-element-field" name="age1" placeholder="e.g. 18" min="0" oninput="validity.valid||(value='');" required />
+                                </div>
+
+                                <!-- PRIMARY RACE SELECT -->
+                                <div class="form-element">
+                                    <label>Perpetrator race</label>
+                                    <select class="form-element-field form-select" name="race1" required>
+                                        <option value="Asian">Asian</option>
+                                        <option value="Black">Black or African American</option>
+                                        <option value="Latino">Hispanic or Latino</option>
+                                        <option value="Native American">Native American or Native Alaskan</option>
+                                        <option value="White">White or European</option>
+                                        <option value="Other">Other Not Listed</option>
+                                    </select>
+                                </div>
+
+                                <!-- PRIMARY GENDER SELECT -->
+                                <div class="form-element">
+                                    <label>Perpetrator gender</label>
+                                    <select class="form-element-field form-select" name="gender1" required>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Identifies as Male</option>
+                                        <option>Identifies as Female</option>
+                                    </select>
+                                </div>
+
+                                <!-- PRIMARY CONCLUSION SELECT -->
+                                <div class="form-element"  data-hint="how did the incident end?">
+                                    <label>Conclusion for perpetrator</label>
+                                    <select class="form-element-field form-select" name="conclusion1" required>
+                                        <option>Apprehended after fleeing</option>
+                                        <option>Arrested at scene</option>
+                                        <option>Killed by police</option>
+                                        <option>Killed by witness</option>
+                                        <option>Suicide by gun</option>
+                                        <option>Suspect escaped capture</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- SECONDARY COLUMN -->
+                            <div class="w3-col s12 m6 secondary" style="display: none;">
+                                
+                                <!-- SECONDARY NAME INPUT -->
+                                <div class="form-element" data-buttons="dictate">
+                                    <label>Secondary name</label>
+                                    <input type="text" class="form-element-field" name="secondary" placeholder="First Last" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="words" required />
+                                </div>
+
+                                <!-- SECONDARY AGE NUMBER -->
+                                <div class="form-element" data-buttons="plus round, minus round">
+                                    <label>Secondary age</label>
+                                    <input type="number" class="form-element-field" name="age2" placeholder="e.g. 18" min="0" oninput="validity.valid||(value='');" required />
+                                </div>
+                                
+                                <!--SECONDARY RACE SELECT-->
+                                <div class="form-element">
+                                    <label>Secondary race</label>
+                                    <select class="form-element-field form-select" name="race2" required>
+                                        <option value="Asian">Asian</option>
+                                        <option value="Black">Black or African American</option>
+                                        <option value="Latino">Hispanic or Latino</option>
+                                        <option value="Native American">Native American or Native Alaskan</option>
+                                        <option value="White">White or European</option>
+                                        <option value="Other">Other Not Listed</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- SECONDARY GENDER SELECT -->
+                                <div class="form-element">
+                                    <label>Secondary gender</label>
+                                    <select class="form-element-field form-select" name="gender2" required>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Identifies as Male</option>
+                                        <option>Identifies as Female</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- SECONDARY CONCLUSION SELECT -->
+                                <div class="form-element"  data-hint="how did the incident end?">
+                                    <label>Conclusion for secondary</label>
+                                    <select class="form-element-field form-select" name="conclusion2" required>
+                                        <option>Apprehended after fleeing</option>
+                                        <option>Arrested at scene</option>
+                                        <option>Killed by police</option>
+                                        <option>Killed by witness</option>
+                                        <option>Suicide by gun</option>
+                                        <option>Suspect escaped capture</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </section>
+                    
+                    <!-- MENTAL HEALTH GROUP -->
+                    <section class="form-section">
+                        
+                        <div class="form-section-header form-legend">Mental Health</div>
+                        
+                        <!-- MENTAL HEALTH ISSUES PRIMARY/SECONDARY COLUMNS-->
+                        <div class="w3-row-padding">
+                            
+                            <!-- PRIMARY COLUMN -->
+                            <div class="w3-col s12 m12 primary">
+                                
+                                <!-- PRIMARY MENTAL HEALTH ISSUES RADIO -->
+                                <fieldset class="form-radio">
+                                    <legend class="form-radio-legend">Perpetrator had mental health issues?</legend>
+                                    <label class="form-radio-label">
+                                        <input type="radio" class="form-radio-field" name="mental_issues1" value="Yes" />
+                                        <i class="form-radio-button"></i>
+                                        <span>Yes <small>after psychiatric evaluation</small></span>
+                                    </label>
+                                    <label class="form-radio-label">
+                                        <input type="radio" class="form-radio-field" name="mental_issues1" value="No" />
+                                        <i class="form-radio-button"></i>
+                                        <span>No <small>after psychiatric evaluation</small></span>
+                                    </label>
+                                    <label class="form-radio-label">
+                                        <input type="radio" class="form-radio-field" name="mental_issues1" value="TBD" />
+                                        <i class="form-radio-button"></i>
+                                        <span>TBD <small>suspect in custody, not evaluated</small></span>
+                                    </label>
+                                    <label class="form-radio-label">
+                                        <input type="radio" class="form-radio-field" name="mental_issues1" value="Unknown" checked />
+                                        <i class="form-radio-button"></i>
+                                        <span>Unknown <small>suspect deceased, not evaluated</small></span>
+                                    </label>
+                                </fieldset>
+                            </div>
+                            
+                            <!-- SECONDARY COLUMN -->
+                            <div class="w3-col s12 m6 secondary" style="display: none;">
+                                
+                                <!-- SECONDARY MENTAL HEALTH ISSUES RADIO -->
+                                <fieldset class="form-radio secondary">
+                                    <legend class="form-radio-legend">Secondary had mental health issues?</legend>
+                                    <label class="form-radio-label">
+                                        <input type="radio" class="form-radio-field" name="mental_issues2" value="Yes" />
+                                        <i class="form-radio-button"></i>
+                                        <span>Yes <small>after psychiatric evaluation</small></span>
+                                    </label>
+                                    <label class="form-radio-label">
+                                        <input type="radio" class="form-radio-field" name="mental_issues2" value="No" />
+                                        <i class="form-radio-button"></i>
+                                        <span>No <small>after psychiatric evaluation</small></span>
+                                    </label>
+                                    <label class="form-radio-label">
+                                        <input type="radio" class="form-radio-field" name="mental_issues2" value="TBD" />
+                                        <i class="form-radio-button"></i>
+                                        <span>TBD <small>suspect in custody, not evaluated</small></span>
+                                    </label>
+                                    <label class="form-radio-label">
+                                        <input type="radio" class="form-radio-field" name="mental_issues2" value="Unknown" />
+                                        <i class="form-radio-button"></i>
+                                        <span>Unknown <small>suspect deceased, not evaluated</small></span>
+                                    </label>
+                                    <input type="hidden" required>
+                                </fieldset>
+                                
+                            </div>
+                            
+                        </div>
+
+                        <!-- MENTAL HEALTH SYNOPSIS TEXTAREA -->
+                        <div class="form-element" data-hint=" " data-buttons="dictate">
+                            <label>Mental health synopsis</label>
+                            <textarea type="text" class="form-element-field" name="mental_synopsis" placeholder="a brief summary of the perpitrators mental history" autocomplete="off" spellcheck="true" autocorrect="off" autocapitalize="sentences" ></textarea>
+                        </div>
+
+                        <!-- MENTAL HEALTH SOURCES LIST -->
+                        <div class="form-element" data-hint="press enter, return or + to add item" data-buttons="valid, add">
+                            <label>Reference list</label>
+                            <input type="text" class="form-element-field url" data-target="#mental_sources" placeholder="e.g. http://website.com/mental_health_article" autocomplete="off" spellcheck="false" autocapitalize="none">
+                        </div>
+                        
+                    </section>                        
+
+                    <!-- BARCODE -->
+                    <section class="form-section">
+                        <div style="width:100%;text-align: center">
+                            <a href="https://docs.google.com/spreadsheets/d/16uvsJtEvZr6M2z4Fje74klaKZPvy5ans_InEm4LBYq0/edit#gid=0" title="open Google sheet" target="_blank"><svg id="code128" role="presentation" aria-label="barcode"></svg></a>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- ACTIONS -->
+                <div class="form-actions">
+                    <button class="submit form-btn form-btn-submit">
+                        <span>Submit</span><i data-icon="cloud_upload" role="presentation"></i>
+                    </button>
+                    <!-- note: this on an edit shooting should be a reset action-->
+                    <button type="reset" class="reset form-btn-cancel -nooutline">
+                        <span>Clear</span><i data-icon="cancel" role="presentation"></i>
+                    </button>
+                </div>
+                
+                <!-- HIDDEN FORM FIELDS -->
+                <input type="hidden" name="victims" value="0" />
+                <input type="hidden" name="fatalities" value="0" />
+                <input type="hidden" name="total" value="0" />
+                <input type="hidden" name="sources" value="" />
+                <input type="hidden" name="weapon" value="" />
+                <input type="hidden" name="group" value="" />
+                <input type="hidden" name="mental_sources" value="" />
+
+            </form>
+        </section>
+
+        <!-- MATERIAL DESIGNS - PAPER THEME - SPINNER -->
+        <div class="paper-spinner">
+			<div class="spinner-container">
+				<div class="spinner-layer layer-1">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+						<div class="circle"></div>
+					</div><div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+
+				<div class="spinner-layer layer-2">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+						<div class="circle"></div>
+					</div><div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+
+				<div class="spinner-layer layer-3">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+						<div class="circle"></div>
+					</div><div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+
+				<div class="spinner-layer layer-4">
+					<div class="circle-clipper left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+						<div class="circle"></div>
+					</div><div class="circle-clipper right">
+						<div class="circle"></div>
+					</div>
+				</div>
+			</div>
+		</div>        
+		
+		<script type="text/javascript" src="map.js"></script>
+        <script type="text/javascript" src="code.js"></script>
+        <script type="text/javascript" src="dictation.js"></script>
+       
+        <script>
+            // select_component.js 
+            selectMachine('select');
+        </script>
+        
+
+
+
+    </body>
+
+</html>

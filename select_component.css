@@ -1,0 +1,871 @@
+:root {
+    --primary-color: #337ab7;
+    --secondary-color: #2196f3;
+    --disabled-color: rgba(0, 0, 0, 0.25);
+    --label-color: #9e9e9e;
+    --modal-window: rgba(0, 0, 0, 0.5);
+    --select-background: #fff;
+    --option-text: #323232;
+    --option-text-hover: #323232;
+    --option-text-focus: #323232;
+    --option-text-disabled: rgba(0, 0, 0, 0.25);
+    --option-background: transparent;
+    --option-background-hover: rgba(198, 218, 252, 0.25);
+    --option-background-focus: rgba(198, 218, 252, 0.1);
+    --option-background-disabled: transparent;
+    --selection-text: #323232;
+    --selection-background: #c6dafc;
+    --checkbox-ring: rgba(0, 0, 0, 0.25);
+    --checkbox-ring-hover: #337ab7;
+    --checkbox-ring-focus: #337ab7;
+    --checkbox-background: #fff;
+    --checkbox-indicator: #337ab7;
+    --radio-ring: rgba(0, 0, 0, 0.25);
+    --radio-ring-hover: #337ab7;
+    --radio-ring-focus: #337ab7;
+    --radio-background: #fff;
+    --radio-indicator: #337ab7;
+    --text-color: #323232;
+    --text-color-hover: #fff;
+    --text-color-focus: #323232;
+    --text-color-light: #888;
+}
+/* W3.CSS 4.10 February 2018 by Jan Egil and Borge Refsnes */
+ html {
+    box-sizing: border-box
+}
+*, *:before, *:after {
+    box-sizing: inherit
+}
+/* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */
+ html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden
+}
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+    display: block
+}
+audio, canvas, progress, video {
+    display: inline-block
+}
+progress {
+    vertical-align: baseline
+}
+audio:not([controls]) {
+    display: none;
+    height: 0
+}
+[hidden], template {
+    display: none
+}
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects
+}
+a:active, a:hover {
+    outline-width: 0
+}
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted
+}
+dfn {
+    font-style: italic
+}
+mark {
+    background: #ff0;
+    color: #000
+}
+small {
+    font-size: 80%
+}
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+sub {
+    bottom: -0.25em
+}
+sup {
+    top: -0.5em
+}
+figure {
+    margin: 1em 40px
+}
+img {
+    border-style: none
+}
+svg:not(:root) {
+    overflow: hidden
+}
+code, kbd, pre, samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible
+}
+button, input, select, textarea {
+    font: inherit;
+    margin: 0
+}
+optgroup {
+    font-weight: bold
+}
+button, input {
+    overflow: visible
+}
+button, select {
+    text-transform: none
+}
+button, html[type=button], [type=reset], [type=submit] {
+    -webkit-appearance: button
+}
+button::-moz-focus-inner, [type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner {
+    border-style: none;
+    padding: 0
+}
+button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring {
+    outline: 1px dotted ButtonText
+}
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: .35em .625em .75em
+}
+legend {
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal
+}
+textarea {
+    overflow: auto
+}
+[type=checkbox], [type=radio] {
+    padding: 0
+}
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+    height: auto
+}
+[type=search] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px
+}
+[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 0.54
+}
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+}
+/* End extract */
+ h1 {
+    font-size: 36px
+}
+h2 {
+    font-size: 30px
+}
+h3 {
+    font-size: 24px
+}
+h4 {
+    font-size: 20px
+}
+h5 {
+    font-size: 18px
+}
+h6 {
+    font-size: 16px
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400
+}
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0
+}
+img {
+    vertical-align: middle
+}
+a {
+    color: inherit
+}
+/*RESETS*/
+ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    zoom:1;
+}
+/* HTML5 display-role reset for older browsers */
+ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content:'';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*Form Elements*/
+ body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    color: var(--text-color, #212529);
+    text-align: left;
+    margin:40px auto;
+    background-color:transparent;
+    background-image:linear-gradient(to top, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.45) 100%);
+}
+/* dont select or drag element or its children */
+ .nodrag {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+::-moz-selection {
+    background-color: #c6dafc;
+    background-color: var(--selection-background, #c6dafc);
+    color:#323232;
+    color: var(--selection-text, #323232);
+}
+::selection {
+    background-color: #c6dafc;
+    background-color: var(--selection-background, #c6dafc);
+    color:#323232;
+    color: var(--selection-text, #323232);
+}
+::-o-selection {
+    background-color: #c6dafc;
+    background-color: var(--selection-background, #c6dafc);
+    color:#323232;
+    color: var(--selection-text, #323232);
+}
+::-ms-selection {
+    background-color: #c6dafc;
+    background-color: var(--selection-background, #c6dafc);
+    color:#323232;
+    color: var(--selection-text, #323232);
+}
+/* dont show the highlight on select <input> focus*/
+ input[readonly]::-webkit-selection {
+    background-color: transparent;
+}
+input[readonly]::-moz-selection {
+    background-color: transparent;
+}
+input[readonly]::selection {
+    background-color: transparent;
+}
+input[readonly]::-o-selection {
+    background-color: transparent;
+}
+input[readonly]::-ms-selection {
+    background-color: transparent;
+}
+input[readonly]::-webkit-selection {
+    background-color: transparent;
+}
+/* basic buttons */
+
+/* requires Material Icon font */
+ button {
+    border-radius:4px;
+    transition:color 0.25s;
+    border:0 solid transparent;
+    background:transparent;
+    color:transparent;
+    cursor:pointer;
+    padding:0;
+    font-size:1.5rem;
+    line-height:1rem;
+    min-width:1.5rem;
+    outline: 0 solid;
+}
+i[data-icon]::before {
+    content:attr(data-icon);
+    font-family:'Material Icons';
+    font-weight:normal;
+    font-style:normal;
+    display:inline-block;
+    line-height: 1.5rem;
+    font-size:1.5rem;
+    text-transform:none;
+    letter-spacing:normal;
+    word-wrap:normal;
+    white-space:nowrap;
+    direction:ltr;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    -moz-osx-font-smoothing:grayscale;
+    font-feature-settings:'liga';
+    color:#888;
+    color:var(--text-color-light, #888);
+    background:transparent;
+    border-radius:4px;
+}
+/* round button shape */
+ .round, .round:active, .round:focus, .round:hover, .round i[data-icon]::before, .round:active i[data-icon]::before, .round:focus i[data-icon]::before, .round:hover i[data-icon]::before {
+    border-radius:50%;
+    outline: 0 solid;
+}
+.form-card {
+    border-radius:2px;
+    background:#FFF;
+    box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition:all 0.56s cubic-bezier(0.25, 0.8, 0.25, 1);
+    min-width:320px;
+    max-width:720px;
+    padding:0;
+    margin:auto;
+    zoom:1;
+}
+.form-card:hover, .form-card:focus {
+    box-shadow:0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.form-card:focus-within {
+    box-shadow:0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.form-card:focus-within {
+    box-shadow:0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.form-fieldset {
+    padding:30px;
+    border:0;
+}
+.form-fieldset> .form-section {
+    padding:0;
+}
+.form-section-header {
+    margin: 1rem auto;
+}
+.form-legend {
+    padding:1em 0 0;
+    margin:0 0 -0.5em;
+    font-size:1.5rem;
+    text-align:center;
+    border-bottom:0 solid transparent;
+}
+.form-fieldset> .form-section> .form-legend {
+    font-size:1.3rem;
+    color:#323232;
+    color: var(--text-color, #323232);
+    font-variant:small-caps;
+}
+.form-element {
+    position:relative;
+    margin-top:2.25rem;
+}
+/*SELECT TRANSFORMATION*/
+
+/*both if hovering on the dialog, hide the focused element background - less confusing visually*/
+ div[role=listbox]:hover input:not(:checked):focus + i + span + .option-bg, div[role=listbox]:hover input:not(:checked):focus + span + .option-bg {
+    background-color: rgba(198, 218, 252, 0.50);
+    background-color: var(--option-background-hover, rgba(198, 218, 252, 0.50));
+}
+label[role=option] {
+    position:relative;
+    text-align:left;
+    display:block;
+    margin: 0;
+    width: 100%;
+    padding: 15px;
+    border-bottom: 1px solid #e6e6e6;
+    background-color:transparent;
+    background-color: var(--option-background, rgba(0, 0, 0, 0));
+    color:#323232;
+    color:var(--option-text, #323232);
+}
+/*multiple select*/
+ label[role=option]> input[type=checkbox] + span {
+    display:block;
+    line-height:1.6rem;
+}
+/*multiple select*/
+ label[role=option]> input[type=checkbox] {
+    width:auto;
+    opacity:0.0001;
+    position:absolute;
+    right: 1rem;
+    top: 1.25rem;
+    margin:0;
+    padding:0;
+}
+/*multiple select*/
+ label[role=option]> input[type=checkbox] + i {
+    position:absolute;
+    -o-user-select:none;
+    -ms-user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    user-select:none;
+    display:block;
+    right: 1rem;
+    top: 1.25rem;
+    width:1rem;
+    height:1rem;
+    z-index:0;
+    border:0.125rem solid #888;
+    border-color:var(--checkbox-ring, #888);
+    border-radius:0.0625rem;
+    transition:color 0.28s ease;
+    background-color: #fff;
+    background-color: var(--checkbox-background, #fff);
+}
+/*multiple select*/
+ label[role=option]> input[type=checkbox] + i::before, label[role=option]> input[type=checkbox] + i::after {
+    position:absolute;
+    height:0;
+    width:0.25rem;
+    background-color:#337ab7;
+    background-color:var(--checkbox-indicator, #337ab7);
+    display:block;
+    transform-origin:left top;
+    border-radius:0.25rem;
+    content:"";
+    transition:opacity 0.28s ease, height 0s linear 0.28s;
+    opacity:0;
+}
+/*multiple select*/
+ label[role=option]> input[type=checkbox]:hover ~ i, label[role=option]:hover> input[type=checkbox] + i {
+    border-color:#337ab7;
+    border-color:var(--checkbox-ring-focus, #337ab7);
+}
+label[role=option]> input[type=checkbox]:focus ~ i, label[role=option]:focus> input[type=checkbox] + i {
+    border-color:#337ab7;
+    border-color:var(--checkbox-ring-hover, #337ab7);
+}
+/*multiple select*/
+ label[role=option]> input[type=checkbox] + i::before {
+    top:0.65rem;
+    left:0.38rem;
+    transform:rotate(-135deg);
+    box-shadow:0 0 0 0.0625rem #FFF;
+}
+/*multiple select*/
+ label[role=option]> input[type=checkbox] + i::after {
+    top:0.3rem;
+    left:0;
+    transform:rotate(-45deg);
+}
+/*multiple select*/
+ label[role=option]> input[type=checkbox]:checked ~ i::after, label[role=option]> input[type=checkbox]:checked ~ i::before {
+    opacity:1;
+    transition:height 0.28s ease;
+}
+/*multiple select*/
+ label[role=option]> input[type=checkbox]:checked ~ i::after {
+    height:0.5rem;
+}
+/*multiple select*/
+ label[role=option]> input[type=checkbox]:checked ~ i::before {
+    height:1.2rem;
+    transition-delay:0.28s;
+}
+/*radio button background color*/
+ label[role=option]> input[type=radio] + i::before {
+    background-color: #fff;
+    background-color:var(--radio-background, #fff);
+}
+/*label hover color*/
+ label:not([disabled=disabled])[role=option]:hover, label:not([disabled=disabled])[role=option]:focus {
+    background-color:rgba(198, 218, 252, 0.50);
+    background-color:var(--option-background-hover, rgba(198, 218, 252, 0.50));
+    color:#323232;
+    color:var(--option-text-hover, #323232);
+}
+/*label on click color*/
+ label:not([disabled=disabled])[role=option]:active {
+    background-color: #c6dafc;
+    background-color: var(--option-background-focus, #c6dafc);
+    color:#323232;
+    color: var(--option-text-focus, #323232);
+}
+/*label disabled background color*/
+ label[disabled=disabled][role=option], label[disabled=disabled][role=option]:active, label[disabled=disabled][role=option]:hover, label[disabled=disabled][role=option]:focus {
+    background-color:transparent;
+    background-color:var(--option-background-disabled, rgba(0, 0, 0, 0));
+    color:rgba(0, 0, 0, 0.25);
+    color:var(--option-text-disabled, rgba(0, 0, 0, 0.25));
+}
+.-ismobile label[role=option]:hover, .-ismobile label[role=option]:focus {
+    background-color:transparent;
+}
+label[role=option].last {
+    margin-bottom: 0;
+}
+/*optional inner icon positioning*/
+ label[role=option]> input + span> span, label[role=option]> input + i + span> span {
+    float: left;
+}
+/*small text color*/
+ label[role=option]> span> small {
+    font-weight: 400;
+    font-size: 0.6875rem;
+    color: #888;
+    color:var(--text-color-light, #888);
+}
+/*normal disabled text color*/
+ label[role=option]> input[disabled] + span, label[role=option]> input[disabled] + i + span {
+    font-weight: 400;
+    text-decoration-style: double;
+    color: rgba(0, 0, 0, 0.25);
+}
+/*optgroup text color*/
+ label[role=option].optgroup> input + span, label[role=option].optgroup> input + i + span {
+    font-weight:700;
+    color:#323232;
+    color: var(--text-color, #323232);
+}
+/* small disabled text color */
+ label[role=option]> input[disabled] + span> small, label[role=option]> input[disabled] + i + span> small, label[role=option]> input[disabled] + span> i, label[role=option]> input[disabled] + i + span> i {
+    color: rgba(0, 0, 0, 0.25);
+    color:var(--option-text-disabled, rgba(0, 0, 0, 0.25));
+}
+/* small optgroup text color */
+ label[role=option].optgroup> input + span> small, label[role=option].optgroup> input + i + span> small, label[role=option].optgroup> input + span> i, label[role=option].optgroup> input + i + span> i {
+    font-weight:500;
+    color: #323232;
+    color: var(--text-color, #323232);
+}
+/*disabled checkbox*/
+ label[role=option]> input[disabled] + i, label[role=option]> input[disabled] + i:before {
+    display:none;
+}
+label[role=option]> input[type=radio] {
+    width:auto;
+    opacity:0.0001;
+    position:absolute;
+    right: .85rem;
+    top: 1.25rem;
+    margin:0;
+    padding:0;
+}
+/* you can have the select with or without the visual radio button */
+ label[role=option]> input + i + span + .option-bg, label[role=option]> input + span + .option-bg {
+    height: 54px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+label[role=option]> input:focus + i + span + .option-bg, label[role=option]> input:focus + span + .option-bg {
+    background-color:rgba(198, 218, 252, 0.50);
+    background-color:var(--option-background-hover, rgba(198, 218, 252, 0.50));
+}
+/*both*/
+ .-ismobile label[role=option]> input:not(:checked):focus + i + span + .option-bg, .-ismobile label[role=option]> input:not(:checked):focus + span + .option-bg {
+    background:transparent;
+}
+/*multi*/
+ .-ismobile label[role=option]> input:not(:checked):focus + i {
+    border-color:#888;
+    border-color:var(--radio-ring, #888);
+}
+/*multi*/
+ .-ismobile label[role=option]> input:checked + i {
+    border-color:#337ab7;
+    border-color:var(--radio-ring-hover, #337ab7);
+}
+label[aria-selected] .option-bg {
+    z-index:0
+}
+label[role=option].hide {
+    display:none;
+}
+label[role=option].show {
+    display:block;
+}
+label[role=option]> input[type=radio] + i {
+    position:absolute;
+    right: 0;
+    top: 0;
+    cursor:pointer;
+    display:block;
+    -o-user-select:none;
+    -ms-user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    user-select:none;
+}
+label[role=option]> input[type=radio] + i::before, label[role=option]> input[type=radio] + i::after {
+    content:"";
+    position:absolute;
+    right: 9px;
+    top: 16px;
+    margin:0.2rem;
+    width:1rem;
+    height:1rem;
+    transition:color 0.28s ease, -webkit-transform 0.28s ease;
+    transition:transform 0.28s ease, color 0.28s ease;
+    transition:transform 0.28s ease, color 0.28s ease, -webkit-transform 0.28s ease;
+    border-radius:50%;
+    border:0.125rem solid #888;
+    border-color:var(--radio-ring, #888);
+}
+label[role=option]> input[type=radio]:focus ~ i::before {
+    border-color:#337ab7;
+    border-color:var(--radio-ring-focus, #337ab7);
+    background-color: #fff;
+    background-color: var(--radio-background, #fff);
+}
+label[role=option]> input[type=radio]:hover ~ i::before {
+    border-color:#337ab7;
+    border-color:var(--radio-ring-hover, #337ab7);
+    background-color: #fff;
+    background-color: var(--radio-background, #fff);
+}
+/*single*/
+ .-ismobile label[role=option]> input[type=radio]:not(:checked):focus ~ i::before, .-ismobile label[role=option]> input[type=radio]:not(:checked):hover ~ i::before {
+    border-color:#888;
+    border-color:var(--radio-ring, #888);
+}
+label[role=option]> input[type=radio] + i::after {
+    transform:scale(0);
+    background-color:#337ab7;
+    background-color:var(--radio-indicator, #337ab7);
+    border-color:#337ab7;
+    border-color:var(--radio-indicator, #337ab7);
+}
+label[role=option]> input[type=radio]:checked ~ i::after {
+    transform:scale(0.5);
+}
+label[role=option]> input[type=radio]:checked ~ i::before {
+    color:#337ab7;
+    color:var(--radio-indicator, #337ab7);
+}
+/*MY SELECT OPTIONS ICON*/
+
+/* add more colors as needed */
+
+/*default*/
+ label[role=option]> input[disabled] + i + span> span > i[data-icon]::before {
+    color:rgba(0, 0, 0, 0.22);
+    color:var(--disabled-color, rgba(0, 0, 0, 0.22));
+}
+label[role=option]> input[disabled] + i + span> .clear> i[data-icon]::before, label[role=option]> input + i + span> .clear> i[data-icon]::before {
+    color:transparent;
+    /*invisible*/
+}
+label[role=option]> input + i + span> span> i[data-icon]::before {
+    color:#337ab7;
+    /*default color*/
+    color:var(--primary-color, #337ab7);
+}
+label[role=option]> input + i + span> .new> i[data-icon]::before {
+    color:#f49f00;
+    /*yellow*/
+}
+/*^add more colors as needed^*/
+ label:not([role=option]) {
+    color:#9e9e9e;
+    color: var(--label-color, #9e9e9e);
+}
+input[readonly] {
+    width:100%;
+    padding-left: 3px;
+    cursor: default;
+}
+/*only when the label is above the new<input>, enable the alt highlight
+form-element code will ignore this so bar underlines the field */
+ .active> label:not([role=option]) + input[readonly] {
+    outline-offset: -1px;
+    /*edge bs*/
+    outline-style: solid;
+    /*edge bs*/
+    outline-width: 2px;
+    /*edge bs*/
+    outline-color: rgba(66, 133, 244, 0.4);
+    /*edge bs*/
+    outline: -webkit-focus-ring-color auto 2px;
+}
+label:not([role=option]) + input[readonly]:hover{
+    outline-color: var(--text-color-light);
+    outline-width:1px;
+    outline-offset:-1px;
+    outline-style:solid;
+}
+/*BUTTON PLACEMENT*/
+ .select-element-action {
+    margin: 3px 0;
+    position: absolute;
+    left: auto;
+    margin-left: -1.5rem;
+    height: 1.5rem;
+    cursor: default;
+}
+/* BUTTON */
+ .select-element-action button.select {
+    background:transparent;
+}
+.select-element-action button.select i[data-icon] {
+    height: 1.5rem;
+    display: block;
+}
+/*BUTTON and ICON STATES*/
+ .select-element-action button:hover, .select-element-action button:focus, .select-element-action button:active, .select-element-action button.select:hover i[data-icon]::before, .select-element-action button.select:focus i[data-icon]::before {
+    background:transparent;
+    color:#888;
+    color:var(--text-color-light, #888);
+    cursor: default;
+}
+/* always break out of smaller containers, like other modals */
+ .select-modal {
+    position: fixed;
+    left: calc(-50vw + 50%);
+    top: calc(-50vh + 50%);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--modal-window, rgba(0, 0, 0, 0.5));
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    z-index: -1;
+}
+.select-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    background-color: var(--select-background, #fff);
+    padding: 0 0;
+    border-radius: 0.25rem;
+    z-index:-1;
+    overflow-y: auto;
+    min-width: 320px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+/*!important because the css for popup in dictation is unique*/
+ .show-select-modal {
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 5 !important;
+    transform: scale(1.0) !important;
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s !important;
+}
+/* END MODAL */
+
+/*chips (part of select but available anywhere)*/
+ .chips {
+    margin-top: 5px;
+    min-height: 1.5rem;
+}
+.chips .pill {
+    font-weight: bold;
+    line-height: 1rem;
+    padding: .5rem .5rem .5rem 1rem;
+    border-radius: 1.25rem;
+    background-color: #f1f1f1;
+    color: #888;
+    color:var(--text-color-light, #888);
+    margin: 5px 5px;
+    display: inline-block;
+    outline: none;
+    cursor:default;
+    -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    box-shadow:0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.chips .chip {
+    font-weight: 400;
+    line-height: 1rem;
+    padding: 0;
+    background-color: transparent;
+    color: #323232;
+    color: var(--text-color, #323232);
+    margin: 0 5px;
+    height: 1.5rem;
+    display: inline-block;
+    outline: none;
+    cursor: default;
+    box-shadow: inherit;
+}
+.chip:focus, .pill:focus {
+    background-color: #c6dafc;
+    color:#323232;
+    color: var(--text-color, #323232);
+}
+.chip:hover, .pill:hover {
+    color: #323232;
+    color: var(--text-color, #323232);
+}
+.closechip {
+    text-align: center;
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #888;
+    color:var(--text-color-light, #888);
+    padding: 0px 0;
+    margin: 0px 0 0 5px;
+    display: inline-block;
+}
+.closechip i {
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.closechip i[data-icon]::before {
+    vertical-align: middle;
+    width: 1.5rem;
+    zoom: .6;
+}
+.closechip:hover i[data-icon]::before, 
+.closechip:focus i[data-icon]::before {
+    color: inherit;
+    background: inherit;
+}
+.closechip:hover {
+    color:#FFF;
+    background-color: rgba(0, 0, 0, 0.12);
+}
+.closechip:focus {
+    color:#FFF;
+    background-color: rgba(0, 0, 0, 0.12);
+}
