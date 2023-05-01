@@ -251,10 +251,11 @@ function resetLocation(){
 
 /*Map*/
 function load_googlemap_js() {
+    var key = ''; // api (with key, map settings will render properly vs development map - git guardian warning 4/30/23)
     var body = document.getElementsByTagName('body')[0];
     var script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDOiuE-IJmTBMoYSiTCItKpm_E7q2k8qlE&libraries=places&callback=initmap';
+    script.src = 'https://maps.googleapis.com/maps/api/js?key='+key+'&libraries=places&callback=initmap';
     body.appendChild(script);
 }
 load_googlemap_js();
