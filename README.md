@@ -8,10 +8,10 @@
  Imagine this as a visual wiki, articles, and stats available via google charts so media could easily visualize the problem and the human beings behind the gun violence, and the victims whose lives were ended. 
 
  -Features:
- --image uploader and editor to google sheet,
- --microphone with read-ahead,
- --my own flowform design,
- --barcode scan and lookup,
+ image uploader and editor to google sheet,
+ microphone with read-ahead,
+ my own flowform design,
+ barcode scan and lookup,
 
  This form also populates the fields using a loading schema if the UUID of the dataset entry is known.
 
